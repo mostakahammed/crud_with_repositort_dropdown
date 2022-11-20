@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: #f6f6f6;
+  font-size: 14px!important;
+}
+
+.inputField{
+    width: 80%;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    background-color: #FFF;
+    padding:5px;
+}

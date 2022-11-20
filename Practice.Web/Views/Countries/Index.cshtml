@@ -1,0 +1,35 @@
+﻿@using Practice.DataAccess.Models;
+@model IEnumerable<Country>; 
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>#Country List </h3>
+        <a asp-action="Create" class="btn btn-success btn-sm"> <i class="fa-solid fa-plus"></i> Add Country </a>
+    </div>
+</div>
+
+<div class="container">
+    <table class="ui celled table" id="myTable">
+        <thead>
+            <tr>
+                <th>#Sl. No</th>
+                <th>@Html.DisplayNameFor(x=>x.CountryName)</th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Select((x,i) => new {Data = x, Sl = i+1}))
+            {
+                <tr>
+                    <td>@item.Sl</td>
+                    <td>@Html.DisplayFor(model => item.Data.CountryName)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Data.CountryId" class="btn btn- btn-outline-info btn-sm"> <i class="fa-solid fa-eye"></i> </a>
+                        <a asp-action="Edit" asp-route-id="@item.Data.CountryId" class="btn btn-outline-warning btn-sm"> <i class="fa-solid fa-pencil"></i> </a>
+                        <a asp-action="Delete" asp-route-id="@item.Data.CountryId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure wanna delete?');"> <i class="fa-solid fa-trash"></i> </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

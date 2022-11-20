@@ -1,0 +1,63 @@
+﻿@model Practice.DataAccess.Models.Applicant
+
+<div class="container">
+    <div class="row my-4">
+        <h3 class="ms-5 ps-5">Update applicant</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2" asp-validation-summary="All">
+            <form asp-controller="Applicants" asp-action="Edit" method="post">
+                <input asp-for="ApplicantId" type="hidden"/>
+                <table class="w-100">
+                    <tr class="m-1">
+                        <td class="d-flex justify-content-between"> <strong>@Html.DisplayNameFor(x=>x.ApplicantName)</strong> <span>:</span></td>
+                        <td><input asp-for="ApplicantName" class="inputField"/></td>
+                        <span class="text-danger" asp-validation-for="ApplicantName"></span>
+                    </tr>
+                    <tr class="m-1">
+                        <td class="d-flex justify-content-between"> <strong>@Html.DisplayNameFor(x=>x.FatherName)</strong> <span>:</span></td>
+                        <td><input asp-for="FatherName" class="inputField"/></td>
+                        <span class="text-danger" asp-validation-for="FatherName"></span>
+                    </tr>
+                    <tr class="m-1">
+                        <td class="d-flex justify-content-between"> <strong>@Html.DisplayNameFor(x=>x.MotherName)</strong> <span>:</span></td>
+                        <td><input asp-for="MotherName" class="inputField"/></td>
+                        <span class="text-danger" asp-validation-for="MotherName"></span>
+                    </tr>
+                    <tr class="m-1">
+                        <td class="d-flex justify-content-between"> <strong>@Html.DisplayNameFor(x=>x.Gender)</strong> <span>:</span></td>
+                        <td>
+                            <select asp-for="Gender" asp-items="@ViewBag.Gender" class="inputField">
+                                <option selected="selected" value="">Select Gender</option>
+                            </select>
+                        <span class="text-danger" asp-validation-for="Gender"></span>
+                        </td>
+                    </tr>
+                    <tr class="m-1">
+                        <td class="d-flex justify-content-between"> <strong>@Html.DisplayNameFor(x=>x.Address)</strong> <span>:</span></td>
+                        <td><input asp-for="Address" class="inputField"/></td>
+                        <span class="text-danger" asp-validation-for="Address"></span>
+                    </tr>
+                    <tr class="m-1">
+                        <td class="d-flex justify-content-between"> <strong>@Html.DisplayNameFor(x=>x.DOB)</strong> <span>:</span></td>
+                        <td><input asp-for="DOB" type="date" class="inputField"/></td>
+                        <span class="text-danger" asp-validation-for="DOB"></span>
+                    </tr>
+                </table>
+                <br />
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <table class="w-100">
+                            <tr class="d-flex justify-content-between">
+                                <td></td>
+                                <td><input type="submit" value="Update" class="btn btn-success btn-sm px-3"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </form>
+            <br />
+            <a asp-action="index" class="btn  btn-primary btn-sm">Go Back</a>
+        </div>
+    </div>
+</div>
